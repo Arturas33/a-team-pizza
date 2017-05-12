@@ -1,8 +1,9 @@
 <?php namespace App\Http\Controllers;
 
+use App\models\Cheeses;
 use Illuminate\Routing\Controller;
 
-class CheesesController extends Controller {
+class CheesesController extends APIbaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,9 +11,17 @@ class CheesesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function adminIndex()
 	{
-		//
+		$config = [];
+		$config['editRoute'] = 'app.cheeses.edit';
+		$config['deleteRoute'] = 'app.cheeses.destroy';
+		$config['list'] = Cheeses::get()->toArray();
+
+
+
+
+		return view('admin.list', $config );
 	}
 
 	/**
@@ -21,7 +30,7 @@ class CheesesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function adminCreate()
 	{
 		//
 	}
@@ -32,7 +41,7 @@ class CheesesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function adminStore()
 	{
 		//
 	}
@@ -44,7 +53,7 @@ class CheesesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function adminShow($id)
 	{
 		//
 	}
@@ -56,7 +65,7 @@ class CheesesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function adminEdit($id)
 	{
 		//
 	}
@@ -68,7 +77,7 @@ class CheesesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function adminUpdate($id)
 	{
 		//
 	}
@@ -80,7 +89,7 @@ class CheesesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function adminDestroy($id)
 	{
 		//
 	}

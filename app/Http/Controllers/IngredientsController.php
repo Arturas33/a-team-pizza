@@ -1,8 +1,11 @@
-<?php namespace App\Http\Controllers;
+<?php
 
-use Illuminate\Routing\Controller;
+namespace App\Http\Controllers;
 
-class IngredientsController extends Controller {
+use App\models\Ingredients;
+
+
+class IngredientsController extends APIbaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,9 +13,13 @@ class IngredientsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function adminIndex()
 	{
-		//
+	    $config = [];
+
+	    $config['list'] = Ingredients::get()->toArray();
+
+	    return view('admin.list', $config);
 	}
 
 	/**
@@ -21,7 +28,7 @@ class IngredientsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function adminCreate()
 	{
 		//
 	}
@@ -32,7 +39,7 @@ class IngredientsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function adminStore()
 	{
 		//
 	}
@@ -44,7 +51,7 @@ class IngredientsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function adminShow($id)
 	{
 		//
 	}
@@ -56,7 +63,7 @@ class IngredientsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function adminEdit($id)
 	{
 		//
 	}
@@ -68,7 +75,7 @@ class IngredientsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function adminUpdate($id)
 	{
 		//
 	}
@@ -80,7 +87,7 @@ class IngredientsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function adminDestroy($id)
 	{
 		//
 	}

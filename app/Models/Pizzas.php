@@ -15,7 +15,7 @@ class Pizzas extends CoreModel
      * Table name
      * @var string
      */
-    protected $table = '';
+    protected $table = 'pz_pizza';
 
     /**
      * Column names

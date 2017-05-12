@@ -21,101 +21,101 @@ Route::group(['prefix' => 'admin'], function (){
 
    Route::group(['prefix' => 'cheeses'], function (){
 
-       Route::get('/', ['as' => 'app.cheeses.index', 'uses' => 'CheesesController@index']);
-       Route::get('/create', ['as' => 'app.cheeses.create', 'uses' => 'CheesesController@create']);
-       Route::post('/create', [ 'uses' => 'CheesesController@store']);
+       Route::get('/', ['as' => 'app.cheeses.index', 'uses' => 'CheesesController@adminIndex']);
+       Route::get('/create', ['as' => 'app.cheeses.create', 'uses' => 'CheesesController@adminCreate']);
+       Route::post('/create', [ 'uses' => 'CheesesController@adminStore']);
 
        Route::group(['prefix' => '{id}'], function () {
 
-           Route::get('/', ['uses' => 'CheesesController@show']);
-           Route::get('/edit', ['as' => 'app.cheeses.edit','uses' => 'CheesesController@edit']);
-           Route::post('/edit', [ 'uses' => 'CheesesController@update']);
-           Route::delete('/delete', ['as' => 'app.cheeses.destroy', 'uses' => 'CheesesController@destroy']);
+           Route::get('/', ['uses' => 'CheesesController@adminShow']);
+           Route::get('/edit', ['as' => 'app.cheeses.edit','uses' => 'CheesesController@adminEdit']);
+           Route::post('/edit', [ 'uses' => 'CheesesController@adminUpdate']);
+           Route::delete('/delete', ['as' => 'app.cheeses.destroy', 'uses' => 'CheesesController@adminDestroy']);
        });
    });
 
     Route::group(['prefix' => 'ingredients'], function () {
 
-        Route::get('/', ['as' => 'app.ingredients.index', 'uses' => 'IngredientsController@index']);
-        Route::get('/create', ['as' => 'app.ingredients.create', 'uses' => 'IngredientsController@create']);
-        Route::post('/create', ['uses' => 'IngredientsController@store']);
+        Route::get('/', ['as' => 'app.ingredients.index', 'uses' => 'IngredientsController@adminIndex']);
+        Route::get('/create', ['as' => 'app.ingredients.create', 'uses' => 'IngredientsController@adminCreate']);
+        Route::post('/create', ['uses' => 'IngredientsController@adminStore']);
 
         Route::group(['prefix' => '{id}'], function () {
 
-            Route::get('/', [ 'uses' => 'IngredientsController@show']);
-            Route::get('/edit', ['as' => 'app.ingredients.edit', 'uses' => 'IngredientsController@edit']);
-            Route::post('/edit', [ 'uses' => 'IngredientsController@update']);
-            Route::delete('/delete', ['as' => 'app.ingredients.destroy', 'uses' => 'IngredientsController@destroy']);
+            Route::get('/', [ 'uses' => 'IngredientsController@adminShow']);
+            Route::get('/edit', ['as' => 'app.ingredients.edit', 'uses' => 'IngredientsController@adminEdit']);
+            Route::post('/edit', [ 'uses' => 'IngredientsController@adminUpdate']);
+            Route::delete('/delete', ['as' => 'app.ingredients.destroy', 'uses' => 'IngredientsController@adminDestroy']);
         });
     });
 
     Route::group(['prefix' => 'pads'], function () {
 
-        Route::get('/', ['as' => 'app.pads.index', 'uses' => 'PadsController@index']);
-        Route::get('/create', ['as' => 'app.pads.create', 'uses' => 'PadsController@create']);
-        Route::post('/create', ['uses' => 'PadsController@store']);
+        Route::get('/', ['as' => 'app.pads.index', 'uses' => 'PadsController@adminIndex']);
+        Route::get('/create', ['as' => 'app.pads.create', 'uses' => 'PadsController@adminCreate']);
+        Route::post('/create', ['uses' => 'PadsController@adminStore']);
 
         Route::group(['prefix' => '{id}'], function () {
 
-            Route::get('/', [ 'uses' => 'PadsController@show']);
-            Route::get('/edit', ['as' => 'app.pads.edit', 'uses' => 'PadsController@edit']);
-            Route::post('/edit', ['uses' => 'PadsController@update']);
-            Route::delete('/delete', ['as' => 'app.pads.destroy', 'uses' => 'PadsController@destroy']);
+            Route::get('/', [ 'uses' => 'PadsController@adminShow']);
+            Route::get('/edit', ['as' => 'app.pads.edit', 'uses' => 'PadsController@adminEdit']);
+            Route::post('/edit', ['uses' => 'PadsController@adminUpdate']);
+            Route::delete('/delete', ['as' => 'app.pads.destroy', 'uses' => 'PadsController@adminDestroy']);
         });
     });
 
     Route::group(['prefix' => 'permissions'], function () {
 
-        Route::get('/', ['uses' => 'PermissionsController@index']);
-        Route::get('/create', ['as' => 'app.permissions.create', 'uses' => 'PermissionsController@create']);
-        Route::post('/create', ['uses' => 'PermissionsController@store']);
+        Route::get('/', ['uses' => 'PermissionsController@adminIndex']);
+        Route::get('/create', ['as' => 'app.permissions.create', 'uses' => 'PermissionsController@adminCreate']);
+        Route::post('/create', ['uses' => 'PermissionsController@adminStore']);
 
         Route::group(['prefix' => '{id}'], function () {
 
-        	Route::get('/', ['uses' => 'PermissionsController@show']);
-        	Route::get('/edit', ['as' => 'app.permissions.edit', 'uses' => 'PermissionsController@edit']);
-        	Route::post('/edit', ['uses' => 'PermissionsController@update']);
-        	Route::delete('/delete', ['as' => 'app.permissions.destroy', 'uses' => 'PermissionsController@destroy']);
+        	Route::get('/', ['uses' => 'PermissionsController@adminShow']);
+        	Route::get('/edit', ['as' => 'app.permissions.edit', 'uses' => 'PermissionsController@adminEdit']);
+        	Route::post('/edit', ['uses' => 'PermissionsController@adminUpdate']);
+        	Route::delete('/delete', ['as' => 'app.permissions.destroy', 'uses' => 'PermissionsController@adminDestroy']);
     	});
     });
     Route::group(['prefix' => 'pizzas'], function () {
 
-        Route::get('/', ['uses' => 'PizzasController@index']);
-        Route::get('/create', ['as' => 'app.pizzas.create', 'uses' => 'PizzasController@create']);
-        Route::post('/create', ['uses' => 'PizzasController@store']);
+        Route::get('/', ['uses' => 'PizzasController@adminIndex']);
+        Route::get('/create', ['as' => 'app.pizzas.create', 'uses' => 'PizzasController@adminCreate']);
+        Route::post('/create', ['uses' => 'PizzasController@adminStore']);
 
         Route::group(['prefix' => '{id}'], function () {
 
-        	Route::get('/', ['uses' => 'PizzasController@show']);
-        	Route::get('/edit', ['as' => 'app.pizzas.edit','uses' => 'PizzasController@edit']);
-        	Route::post('/edit', [ 'uses' => 'PizzasController@update']);
-        	Route::delete('/delete', ['as' => 'app.pizzas.destroy', 'uses' => 'PizzasController@destroy']);
+        	Route::get('/', ['uses' => 'PizzasController@adminShow']);
+        	Route::get('/edit', ['as' => 'app.pizzas.edit','uses' => 'PizzasController@adminEdit']);
+        	Route::post('/edit', [ 'uses' => 'PizzasController@adminUpdate']);
+        	Route::delete('/delete', ['as' => 'app.pizzas.destroy', 'uses' => 'PizzasController@adminDestroy']);
     	});
     });
     Route::group(['prefix' => 'roles'], function () {
-        Route::get('/', ['uses' => 'RolesController@index']);
-        Route::get('/create', ['as' => 'app.roles.create', 'uses' => 'RolesController@create']);
-        Route::post('/create', ['uses' => 'RolesController@store']);
+        Route::get('/', ['uses' => 'RolesController@adminIndex']);
+        Route::get('/create', ['as' => 'app.roles.create', 'uses' => 'RolesController@adminCreate']);
+        Route::post('/create', ['uses' => 'RolesController@adminStore']);
 
         Route::group(['prefix' => '{id}'], function () {
 
-        	Route::get('/', ['uses' => 'RolesController@show']);
-        	Route::get('/edit', ['as' => 'app.roles.edit', 'uses' => 'RolesController@edit']);
-        	Route::post('/edit', [ 'uses' => 'RolesController@update']);
-        	Route::delete('/delete', ['as' => 'app.roles.destroy', 'uses' => 'RolesController@destroy']);
+        	Route::get('/', ['uses' => 'RolesController@adminShow']);
+        	Route::get('/edit', ['as' => 'app.roles.edit', 'uses' => 'RolesController@adminEdit']);
+        	Route::post('/edit', [ 'uses' => 'RolesController@adminUpdate']);
+        	Route::delete('/delete', ['as' => 'app.roles.destroy', 'uses' => 'RolesController@adminDestroy']);
         });
     });
     Route::group(['prefix' => 'users'], function () {
-        Route::get('/', ['uses' => 'UsersController@index']);
-        Route::get('/create', ['as' => 'app.users.create', 'uses' => 'UsersController@create']);
-        Route::post('/create', ['uses' => 'UsersController@store']);
+        Route::get('/', ['uses' => 'UsersController@adminIndex']);
+        Route::get('/create', ['as' => 'app.users.create', 'uses' => 'UsersController@adminCreate']);
+        Route::post('/create', ['uses' => 'UsersController@adminStore']);
 
         Route::group(['prefix' => '{id}'], function () {
 
         	Route::get('/', ['uses' => 'UsersController@show']);
         	Route::get('/edit', ['as' => 'app.users.edit','uses' => 'UsersController@edit']);
-        	Route::post('/{id}/edit', [ 'uses' => 'UsersController@update']);
-        	Route::delete('/{id}/delete', ['as' => 'app.users.destroy', 'uses' => 'UsersController@destroy']);
+        	Route::post('/edit', [ 'uses' => 'UsersController@update']);
+        	Route::delete('/delete', ['as' => 'app.users.destroy', 'uses' => 'UsersController@destroy']);
     	});
     });
 });
