@@ -2,7 +2,7 @@
 
 use Illuminate\Routing\Controller;
 
-class UsersController extends Controller {
+class UsersController extends APIbaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,9 +10,9 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function adminIndex()
 	{
-		//
+
 	}
 
 	/**
@@ -21,7 +21,7 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function adminCreate()
 	{
 		//
 	}
@@ -32,7 +32,7 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function adminStore()
 	{
 		//
 	}
@@ -44,7 +44,7 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function adminShow($id)
 	{
 		//
 	}
@@ -56,7 +56,7 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function adminEdit($id)
 	{
 		//
 	}
@@ -68,7 +68,7 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function adminUpdate($id)
 	{
 		//
 	}
@@ -80,7 +80,7 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function adminDestroy($id)
 	{
 		//
 	}
