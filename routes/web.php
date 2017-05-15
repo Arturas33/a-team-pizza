@@ -38,11 +38,13 @@ Route::group(['prefix' => 'admin'], function (){
 
         Route::get('/', ['as' => 'app.ingredients.index', 'uses' => 'IngredientsController@adminIndex']);
         Route::get('/create', ['as' => 'app.ingredients.create', 'uses' => 'IngredientsController@adminCreate']);
-        Route::post('/create', ['uses' => 'IngredientsController@adminStore']);
+        Route::post('/create', [
+            'uses' => 'IngredientsController@adminStore'
+        ]);
 
         Route::group(['prefix' => '{id}'], function () {
 
-            Route::get('/', [ 'uses' => 'IngredientsController@adminShow']);
+            Route::get('/', [ 'as' => 'app.ingredients.show', 'uses' => 'IngredientsController@adminShow']);
             Route::get('/edit', ['as' => 'app.ingredients.edit', 'uses' => 'IngredientsController@adminEdit']);
             Route::post('/edit', [ 'uses' => 'IngredientsController@adminUpdate']);
             Route::delete('/delete', ['as' => 'app.ingredients.destroy', 'uses' => 'IngredientsController@adminDestroy']);

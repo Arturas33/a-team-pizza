@@ -34,4 +34,15 @@ class CoreModel extends Model
             }
         });
     }
+
+    /**
+     * Returns name of the table
+     *
+     * @return string
+     */
+    public function getTableName()
+    {
+        $tableName = substr($this->table,3, -1);
+        return $tableName;
+    }
 }
