@@ -32,8 +32,8 @@ class IngredientsController extends APIbaseController {
 	public function adminCreate()
 	{
 
+        $array = Ingredients::find(0);
         $config['route'] = 'app.ingredients.create';
-        $array = Ingredients::find(1);
         $config['item'] = $array->getFillable();
 
         return view('admin.createform', $config);

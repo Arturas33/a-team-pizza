@@ -9,8 +9,13 @@
 namespace App\models;
 
 
-class Users extends CoreModel
+use App\User;
+use Illuminate\Notifications\Notifiable;
+
+class Users extends User
 {
+    use Notifiable;
+
     protected $table = 'pz_users';
 
     protected $fillable = ['id', 'name', 'email', 'password', 'phone', 'address', 'comment'];
