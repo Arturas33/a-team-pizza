@@ -16,6 +16,7 @@ class Users extends User
 {
     use Notifiable;
 
+    
     protected $table = 'pz_users';
 
     protected $fillable = ['id', 'name', 'email', 'password', 'phone', 'address', 'comment'];
