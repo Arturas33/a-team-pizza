@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use App\models\Cheeses;
+use App\models\Ingredients;
+use App\models\Pads;
 use App\models\Pizzas;
 use Illuminate\Routing\Controller;
 
@@ -54,7 +57,8 @@ class PizzasController extends APIbaseController {
 
 	public function create()
     {
-
+        $config = $this->getFormData();
+        return view('frontend.placeOrder', $config);
     }
 
     /**
@@ -252,5 +256,11 @@ class PizzasController extends APIbaseController {
 	{
 
 	}
-
+    private function getFormData() {
+        $config['base'] = Pads::pluck('name', 'id')->toArray();
+        $config['cheese'] = Cheeses::pluck('name', 'id')->toArray();
+        $config['toppings'] = Ingredients::pluck('name', 'id')->toArray();
+        $config['superIngredient'] = cache()->get('super-ingredient');
+        return $config;
+    }
 }

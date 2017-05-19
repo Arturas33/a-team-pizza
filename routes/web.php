@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//admin-permissions
 
-
-Route::group(['prefix' => 'admin'], function (){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin-permissions']], function (){
 
    Route::group(['prefix' => 'cheeses'], function (){
 
@@ -125,8 +125,9 @@ Route::group(['prefix' => 'admin'], function (){
 Route::group(['prefix' => 'pizzas'], function () {
 
     Route::get('/', ['uses' => 'PizzasController@index']);
-    Route::get('/create', ['as' => 'app.pizzas.create', 'uses' => 'PizzasController@create']);
+    Route::get('/create', ['middleware' => ['auth', 'roles'], 'as' => 'app.pizzas.create', 'uses' => 'PizzasController@create']);
 	Route::post('/create', ['uses' => 'PizzasController@store']);
+
 
     Route::group(['prefix' => '{id}'], function () {
 
@@ -136,3 +137,8 @@ Route::group(['prefix' => 'pizzas'], function () {
         Route::delete('/delete', ['as' => 'app.pizzas.destroy', 'uses' => 'PizzasController@destroy']);
     });
 });
+
+Auth::routes(
+
+);
+    Route::get('/home', 'HomeController@index')->name('home');

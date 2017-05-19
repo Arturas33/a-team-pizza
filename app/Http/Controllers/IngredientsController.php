@@ -32,12 +32,11 @@ class IngredientsController extends APIbaseController {
 	public function adminCreate()
 	{
 
-        $config['route'] = 'app.ingredients.create';
-        $array = Ingredients::find(1);
+        $array = Ingredients::find(0);
         $config['item'] = $array->getFillable();
-
+        $config['route'] = 'app.ingredients.create';
         return view('admin.createform', $config);
-	}
+    }
 
 	/**
 	 * Store a newly created resource in storage.
